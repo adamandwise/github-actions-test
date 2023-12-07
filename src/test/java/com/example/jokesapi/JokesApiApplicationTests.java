@@ -55,12 +55,10 @@ class JokesApiApplicationTests
        headers.setContentType(MediaType.APPLICATION_JSON);
 
        Joke joke = new Joke("Knock,knock");
-       //ResponseEntity<Joke> response = rest.exchange(endpoint,HttpMethod.POST, request,Joke.class);
+       ResponseEntity<Joke> response = rest.exchange(endpoint,HttpMethod.POST, request,Joke.class);
 
-
-       
-       //assertEquals(response.getStatusCode(), HttpStatus.CREATED)
-
+       assertEquals(response.getStatusCode(), HttpStatus.CREATED)
+       assertNOTNULL(response.getBody());
 
 
     }
